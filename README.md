@@ -2,6 +2,10 @@
 
 Download the project and unzip or clone using GIT
 
+# Install Required Dependencies
+
+See the package.json for more info.
+
 ## Available Scripts
 
 In the project directory, you can run:
