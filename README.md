@@ -1,4 +1,4 @@
-# Getting Started the project
+# Getting Started with the project
 
 Download the project and unzip or clone using GIT
 
