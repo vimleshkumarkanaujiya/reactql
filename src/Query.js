@@ -2,6 +2,7 @@ const githubQuery = {
     query: `
     {
         viewer {
+            name
         repositories(first: 20) {
             nodes {
             name

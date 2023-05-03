@@ -31,9 +31,8 @@ function App() {
   return (
     <div className="App container mt-5">
       <h1 className="text-primary">
-        <i className="bi bi-github" > Repositories </i>
+        <i className="bi bi-github" > Repositories by {userName} </i>
       </h1>
-      
         {repoList && (
           <ul className="list-group list-group-flush">
             {repoList.map((repo) => (
