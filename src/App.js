@@ -3,38 +3,50 @@ import query from "./Query";
 import { useCallback, useEffect, useState } from "react";
 
 function App() {
-let [userName, setUserName] = useState("");
+  let [userName, setUserName] = useState("");
+  let [repoList, setRepoList] = useState(null);
 
-const fetchData = useCallback(()=>{
-  fetch(github.baseURL, {
-    method: "POST",
-    headers: github.headers,
-    body: JSON.stringify(query)
-  })
-  .then((response)=>response.json())
-  .then((data)=>{
-    setUserName(data.data.viewer.name);
-    console.log(data);
-  })
-  .catch((err)=>{
-    console.log(err);
-  });
-}, [])
+  const fetchData = useCallback(() => {
+    fetch(github.baseURL, {
+      method: "POST",
+      headers: github.headers,
+      body: JSON.stringify(query),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const viewer = data.data.viewer;
+        setUserName(viewer.name);
+        setRepoList(viewer.repositories.nodes);
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
-useEffect(()=>{
-  fetchData();
-}, [fetchData]);
-
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   return (
     <div className="App container mt-5">
       <h1 className="text-primary">
-        <i className="bi bi-diagram-2-fill">Repos</i>
+        <i className="bi bi-github" > Repositories </i>
       </h1>
-      <p>
-        Hey there, {userName}
-      </p>
-      </div>
+      
+        {repoList && (
+          <ul className="list-group list-group-flush">
+            {repoList.map((repo) => (
+              <li className="list-group-item" key={repo.id.toString()}>
+                <a className="h5 mb-0 text-decoration-none" href={repo.url}>
+                  {repo.name}
+                </a>
+                <p className="small">{repo.description}</p>
+              </li>
+            ))}
+          </ul>
+        )}
+    </div>
   );
 }
 
