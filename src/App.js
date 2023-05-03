@@ -18,7 +18,7 @@ useEffect(()=>{
     headers: github.headers,
     body: JSON.stringify(githubQuery)
   })
-  .then((response)=>response.json)
+  .then((response)=>response.json())
   .then((date)=>{
     console.log(date);
   })
