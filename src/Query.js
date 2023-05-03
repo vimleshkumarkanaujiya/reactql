@@ -1,11 +1,18 @@
 const githubQuery = {
     query: `
     {
-      viewer{
-        name
-      }
+        viewer {
+        repositories(first: 20) {
+            nodes {
+            name
+            description
+            id
+            url
+            }
+        }
+        }
     }
     `,
-  };
+};
 
-  export default githubQuery;
+export default githubQuery;
