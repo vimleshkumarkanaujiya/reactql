@@ -1,12 +1,10 @@
-#Project (Screenshot)
-<img src="reactql.png" alt="GraphQl Demo Using React">
+# Project (Screenshot)
+
+![reactql](https://user-images.githubusercontent.com/29819213/236170724-b3ed7cc1-33ef-4443-be66-54e741ca194d.png)
 
 # Project (Implementation)
 
-<video autoplay playsinline style="pointer-events: none;">
-  <source src="reactql_comp.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+https://user-images.githubusercontent.com/29819213/236170629-146a4474-ea07-4f23-bfb3-928adbc6f4d1.mp4
 
 # Getting Started with the project
 
